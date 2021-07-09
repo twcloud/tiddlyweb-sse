@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "strict": true,
+    "noImplicitAny": false,
+    "esModuleInterop": false,
+    "lib": [
+      "es5"
+    ]
+  },
+  "files": [
+    "./server-sent-events.ts"
+  ]
+}
