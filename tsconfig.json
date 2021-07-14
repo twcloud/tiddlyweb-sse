@@ -5,6 +5,7 @@
     "strict": true,
     "noImplicitAny": false,
     "esModuleInterop": false,
+    "outDir": "dist",
     "lib": [
       "es5"
     ]
