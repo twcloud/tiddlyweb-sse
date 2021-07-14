@@ -4,8 +4,7 @@
   "description": "This plugin runs in both the browser and server to sync changes immediately instead of waiting for polling. It adds a route to the server which sends server-sent events to the client, and loads an `EventSource` in the client to call `$tw.syncer.syncFromServer()`.",
   "main": "server-sent-events.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node build.js ++dist .",
+    "build": "node build.js",
     "serve": "tiddlywiki +plugins/tiddlywiki/tiddlyweb +plugins/tiddlywiki/filesystem . --listen"
   },
   "repository": {

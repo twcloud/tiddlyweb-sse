@@ -3,7 +3,7 @@ var path = require("path");
 var fs = require("fs");
 
 // Pass the command line arguments to the boot kernel
-$tw.boot.argv = Array.prototype.slice.call(process.argv,2);
+$tw.boot.argv = ["++dist","."];
 
 // Boot the TW5 app
 $tw.boot.boot();
