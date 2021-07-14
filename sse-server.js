@@ -53,14 +53,14 @@ eventServer.emitterFilter = function(sender) {
 }
 
 if(!$tw.wiki.getTiddler("$:/plugins/tiddlywiki/tiddlyweb")) {
-	$tw.utils.warning("Warning: Plugin \"tiddlywiki/tiddlyweb-sse\" specified but \"tiddlywiki/tiddlyweb\" is missing from tiddlywiki.info file");
+	$tw.utils.warning("Warning: Plugin \"arlen22/tiddlyweb-sse\" specified but \"tiddlywiki/tiddlyweb\" is missing from tiddlywiki.info file");
 }
 
 // Export the route definition for this server sent events handler. 
 // We don't need an emitter route, otherwise we could put the common 
 // instance in a library tiddler export and require it in both files.
 module.exports = eventServer.handlerExports(
-	"plugins/tiddlywiki/tiddlyweb-sse",
+	"plugins/arlen22/tiddlyweb-sse",
 	function(request,response,state) {
 		if(state.params[0] !== "wiki-change") {
 			response.writeHead(404);
