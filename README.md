@@ -4,8 +4,8 @@ This plugin runs in both the browser and server to sync changes immediately inst
 
 The plugin may be quickly included in a wiki by adding `"++C:\path\to\tiddlyweb-sse\dist"` _before_ the data folder. 
 
-It may also be included in the data folder by putting the _contents_ of the dist folder or the single `plugin.info` bundle (available from the releases page) in `plugins/tiddlyweb-sse/`. 
-
 ```bash
 node tiddlywiki.js "++C:\path\to\tiddlyweb-sse\dist" "C:\my\datafolder" --listen
 ```
+
+It may also be included in the data folder by putting the _contents_ of the dist folder or the single `plugin.info` bundle (available from the releases page) in `plugins/tiddlyweb-sse/`. 
