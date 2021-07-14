@@ -44,27 +44,30 @@ export class Journal {
     }
 
     handleConnection(conn: SSEClient) {
-        var channel = conn.channel;
+        let channel = conn.channel;
         this.initJournal(channel);
+
         if (conn.request.headers["last-event-id"]) {
             let id = conn.request.headers["last-event-id"];
             let found = false;
             // find the specified event ID the client last recieved and return everything since then
             for (let i = 0; i < this.records[channel].length; i++) {
                 let tag = this.records[channel][i].EventIDString;
+                // return all records after the record that was found
                 if (found) { conn.writeJournalRecord(this.records[channel][i]); }
+                // we don't need to send the tag here because it is a reconnect and already has it
                 else if (tag === id) { found = true; conn.start(200, this.responseHeaders); }
             }
             // If not found return 409 Conflict since that event id is not found
             // this way the client can retry manually if needed.
-            if (found == false) { conn.start(409); conn.end(); }
+            if (found == false) { conn.start(409); conn.end(); return; }
         } else {
             let index = this.records[channel].length - 1;
             let latest = index > -1 ? this.records[channel][index] : null;
             conn.start(200, this.responseHeaders, latest?.EventIDString);
         }
-        conn.onended = this.handleConnectionEnded.bind(this, conn);
         this.connections[channel].push(conn);
+        conn.onended = this.handleConnectionEnded.bind(this, conn);
     }
     handleConnectionEnded(conn: SSEClient) {
         this.connections[conn.channel].splice(this.connections[conn.channel].indexOf(conn), 1);
@@ -77,7 +80,7 @@ export class Journal {
             response.end();
         }
     }
-    handlerExports(prefix: string, handler = this.handler.bind(this)): RouteDef<"stream"> {
+    handlerExports(prefix: string, handler: Journal["handler"] = this.handler.bind(this)): RouteDef<"stream"> {
         return {
             method: "GET",
             path: new RegExp("^/events/" + prefix + "/([^/]+)$"),

@@ -39,9 +39,11 @@ var Journal = /** @class */ (function () {
             // find the specified event ID the client last recieved and return everything since then
             for (var i = 0; i < this.records[channel].length; i++) {
                 var tag = this.records[channel][i].EventIDString;
+                // return all records after the record that was found
                 if (found) {
                     conn.writeJournalRecord(this.records[channel][i]);
                 }
+                // we don't need to send the tag here because it is a reconnect and already has it
                 else if (tag === id) {
                     found = true;
                     conn.start(200, this.responseHeaders);
@@ -52,6 +54,7 @@ var Journal = /** @class */ (function () {
             if (found == false) {
                 conn.start(409);
                 conn.end();
+                return;
             }
         }
         else {
@@ -59,8 +62,8 @@ var Journal = /** @class */ (function () {
             var latest = index > -1 ? this.records[channel][index] : null;
             conn.start(200, this.responseHeaders, latest === null || latest === void 0 ? void 0 : latest.EventIDString);
         }
-        conn.onended = this.handleConnectionEnded.bind(this, conn);
         this.connections[channel].push(conn);
+        conn.onended = this.handleConnectionEnded.bind(this, conn);
     };
     Journal.prototype.handleConnectionEnded = function (conn) {
         this.connections[conn.channel].splice(this.connections[conn.channel].indexOf(conn), 1);
