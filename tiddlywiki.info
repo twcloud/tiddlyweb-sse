@@ -6,7 +6,12 @@
 		"tiddlywiki/snowwhite"
 	],
 	"build": {
-		"index": [
-			"--rendertiddler","$:/plugins/twcloud/tiddlyweb-sse","plugin.info","application/javascript","$:/plugins/twcloud/plugin-bundles/templates/json-plugin-bundle"]
+		"bundle": [
+			"--rendertiddler",
+				"$:/plugins/twcloud/tiddlyweb-sse",
+				"plugin.info",
+				"application/json",
+				"$:/plugins/twcloud/plugin-bundles/templates/json-plugin-bundle"
+		]
 	}
 }
