@@ -9,3 +9,5 @@ node tiddlywiki.js "++C:\path\to\tiddlyweb-sse\dist" "C:\my\datafolder" --listen
 ```
 
 It may also be included in the data folder by putting the _contents_ of the dist folder or the single `plugin.info` bundle (available from the releases page) in `plugins/tiddlyweb-sse/`. 
+
+https://github.com/twcloud/tiddlyweb-sse/releases
