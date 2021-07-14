@@ -4,14 +4,5 @@
 	"themes": [
 		"tiddlywiki/vanilla",
 		"tiddlywiki/snowwhite"
-	],
-	"build": {
-		"bundle": [
-			"--rendertiddler",
-				"$:/plugins/twcloud/tiddlyweb-sse",
-				"plugin.info",
-				"application/json",
-				"$:/plugins/twcloud/plugin-bundles/templates/json-plugin-bundle"
-		]
-	}
+	]
 }
