@@ -1,9 +1,9 @@
 /*\
-title: $:/plugins/arlen22/tiddlyweb-sse/sse-server.js
+title: $:/plugins/twcloud/tiddlyweb-sse/sse-server.js
 type: application/javascript
 module-type: route
 
-GET /events/plugins/arlen22/tiddlyweb/(channel)
+GET /events/plugins/twcloud/tiddlyweb/(channel)
 
 \*/
 (function() {
@@ -53,7 +53,7 @@ eventServer.emitterFilter = function(sender) {
 }
 
 if(!$tw.wiki.getTiddler("$:/plugins/tiddlywiki/tiddlyweb")) {
-	$tw.utils.warning("Warning: Plugin \"arlen22/tiddlyweb-sse\" specified but \"tiddlywiki/tiddlyweb\" is missing");
+	$tw.utils.warning("Warning: Plugin \"twcloud/tiddlyweb-sse\" specified but \"tiddlywiki/tiddlyweb\" is missing");
 }
 
 // Export the route definition for this server sent events handler. 
@@ -61,7 +61,7 @@ if(!$tw.wiki.getTiddler("$:/plugins/tiddlywiki/tiddlyweb")) {
 // instance in a library tiddler export and require it in both files.
 
 module.exports = eventServer.handlerExports(
-	"plugins/arlen22/tiddlyweb-sse",
+	"plugins/twcloud/tiddlyweb-sse",
 	function(request,response,state) {
 		if(state.params[0] !== "wiki-change") {
 			response.writeHead(404);

@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/arlen22/tiddlyweb-sse/sse-client.js
+title: $:/plugins/twcloud/tiddlyweb-sse/sse-client.js
 type: application/javascript
 module-type: startup
 
@@ -28,7 +28,7 @@ exports.startup = function() {
 		var host = syncer.syncadaptor.getHost();
 		// Make sure it ends with a slash (it usually does)
 		if(host[host.length - 1] !== "/") { host += "/"; }
-		var endpoint = host + "events/plugins/arlen22/tiddlyweb-sse/wiki-change";
+		var endpoint = host + "events/plugins/twcloud/tiddlyweb-sse/wiki-change";
 		// Setup the event listener
 		source = exports.setupSSE(endpoint,syncer);
 	});
