@@ -1,9 +1,9 @@
 /*\
-title: $:/plugins/tiddlywiki/tiddlyweb-sse/sse-server.js
+title: $:/plugins/arlen22/tiddlyweb-sse/sse-server.js
 type: application/javascript
 module-type: route
 
-GET /events/plugins/tiddlywiki/tiddlyweb/(channel)
+GET /events/plugins/arlen22/tiddlyweb/(channel)
 
 \*/
 (function() {

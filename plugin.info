@@ -3,5 +3,6 @@
 	"name": "TiddlyWeb SSE",
 	"description": "Sync changes immediately from the browser to TW5 (node.js) using SSE",
 	"list": "readme",
-	"plugin-priority": 10
+	"plugin-priority": 10,
+	"license": "MIT Copyright Arlen Beiler 2021"
 }

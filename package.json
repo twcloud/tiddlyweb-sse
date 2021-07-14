@@ -1,0 +1,23 @@
+{
+  "name": "tiddlyweb-sse",
+  "version": "1.0.0",
+  "description": "This plugin runs in both the browser and server to sync changes immediately instead of waiting for polling. It adds a route to the server which sends server-sent events to the client, and loads an `EventSource` in the client to call `$tw.syncer.syncFromServer()`.",
+  "main": "server-sent-events.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/twcloud/tiddlyweb-sse.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/twcloud/tiddlyweb-sse/issues"
+  },
+  "homepage": "https://github.com/twcloud/tiddlyweb-sse#readme",
+  "dependencies": {
+    "@types/node": "^16.3.2",
+    "typescript": "^4.3.5"
+  }
+}
