@@ -39,7 +39,7 @@ function ensureChannelSetup(channel,wiki) {
 	// setup wikis for the wiki-change channel
 	if(channel === "wiki-change" && wikis.indexOf(wiki) === -1) { setupWiki(wiki); }
 }
-
+/** @type {import('../server-sent-events').Journal} */
 var eventServer = new Journal();
 
 // this filter is called for the emitter route, which recieves 
@@ -53,12 +53,13 @@ eventServer.emitterFilter = function(sender) {
 }
 
 if(!$tw.wiki.getTiddler("$:/plugins/tiddlywiki/tiddlyweb")) {
-	$tw.utils.warning("Warning: Plugin \"arlen22/tiddlyweb-sse\" specified but \"tiddlywiki/tiddlyweb\" is missing from tiddlywiki.info file");
+	$tw.utils.warning("Warning: Plugin \"arlen22/tiddlyweb-sse\" specified but \"tiddlywiki/tiddlyweb\" is missing");
 }
 
 // Export the route definition for this server sent events handler. 
 // We don't need an emitter route, otherwise we could put the common 
 // instance in a library tiddler export and require it in both files.
+
 module.exports = eventServer.handlerExports(
 	"plugins/arlen22/tiddlyweb-sse",
 	function(request,response,state) {
@@ -67,7 +68,8 @@ module.exports = eventServer.handlerExports(
 			response.end();
 			return;
 		}
-		setTimeout(() => { response.end(); }, 10000);
+		// remove the socket timeout
+		request.setTimeout(0);
 		ensureChannelSetup(state.params[0],state.wiki);
 		eventServer.handler(request,response,state);
 	}
