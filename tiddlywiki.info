@@ -1,0 +1,12 @@
+{
+	"description": "Basic client-server edition",
+	"plugins": [],
+	"themes": [
+		"tiddlywiki/vanilla",
+		"tiddlywiki/snowwhite"
+	],
+	"build": {
+		"index": [
+			"--rendertiddler","$:/plugins/twcloud/tiddlyweb-sse","plugin.info","application/javascript","$:/plugins/twcloud/plugin-bundles/templates/json-plugin-bundle"]
+	}
+}
