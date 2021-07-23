@@ -7,7 +7,7 @@ $tw.boot.argv = ["."];
 // we only need the first phase of startup
 $tw.boot.initStartup({});
 // get the bundle output path
-var output = path.resolve("output/plugin.info");
+var output = path.resolve("plugins/sse/plugin.info");
 // create the directory tree
 if(!fs.existsSync(path.dirname(output))) {
     fs.mkdirSync(path.dirname(output),{recursive: true});

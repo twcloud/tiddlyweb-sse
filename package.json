@@ -5,7 +5,7 @@
   "main": "server-sent-events.js",
   "scripts": {
     "build": "node build.js",
-    "serve": "tiddlywiki +plugins/tiddlywiki/tiddlyweb +plugins/tiddlywiki/filesystem . --listen"
+    "serve": "tiddlywiki +plugins/tiddlywiki/tiddlyweb +plugins/tiddlywiki/filesystem ++dist .  --listen"
   },
   "repository": {
     "type": "git",
