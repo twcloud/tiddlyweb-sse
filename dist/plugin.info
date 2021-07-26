@@ -5,5 +5,5 @@
 	"list": "readme",
 	"plugin-priority": 10,
 	"license": "MIT - Copyright Arlen Beiler 2021",
-	"version": "1.0.0"
+	"version": "1.0.1"
 }
