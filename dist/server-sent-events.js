@@ -189,6 +189,7 @@ var SSEClient = /** @class */ (function() {
 			"Content-Type": "text/event-stream",
 			"Cache-Control": "no-cache",
 			'Connection': 'keep-alive',
+			'X-Accel-Buffering': 'no',
 		},headers));
 		// write the retry interval and event id immediately
 		this.write("","",eventID);
