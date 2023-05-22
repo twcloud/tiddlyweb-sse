@@ -24,7 +24,7 @@ exports.platforms = ["browser"];
 exports.synchronous = true;
 exports.startup = function() {
 	var source = null;
-	if($tw.syncer.syncadaptor.name !== "tiddlyweb") {return;}
+	if(!$tw.syncer || !$tw.syncer.syncadaptor || $tw.syncer.syncadaptor.name !== "tiddlyweb") {return;}
 	$tw.wiki.addEventListener("change",function(changes) {
 		if(checks.filter(e => changes[e]).length === 0) {return;}
 		// check if we have a previous one and close it if we do
